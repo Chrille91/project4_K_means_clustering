@@ -50,7 +50,7 @@ def get_cluster_mean_df(cluster_output, scaled_df):
 ##############################################################################################################################
 # This function takes as input the cluster mean DataFrame and the scaled DataFrame and plot the radar shart
 
-def plot_radar_shart(scaled_df,cluster_mean_df):
+def plot_radar_chart(scaled_df,cluster_mean_df):
 
     # State the label for each arm of the chart
     categories = list(scaled_df.columns.values)
@@ -98,8 +98,8 @@ def plot_radar_shart(scaled_df,cluster_mean_df):
 ##############################################################################################################################
 # This function uses all the above functions
 # It takes as input the original DataFrame, the scalar name, the number of cluster and the random seed and plot the radar shart
-def plot_radar_shart_clusters(name_df,scaler_name,number_clusters,random_seed):
+def plot_radar_chart_clusters(name_df,scaler_name,number_clusters,random_seed):
     scaled_df=getScaled_df(name_df,scaler_name)
     cluster_output=get_clusters(number_clusters,random_seed,scaled_df)
     cluster_mean_df=get_cluster_mean_df(cluster_output, scaled_df)
-    plot_radar_shart(scaled_df,cluster_mean_df)
+    plot_radar_chart(scaled_df,cluster_mean_df)
