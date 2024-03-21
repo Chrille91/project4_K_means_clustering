@@ -5,6 +5,8 @@ import seaborn as sns
 from sklearn.preprocessing import MinMaxScaler, StandardScaler, RobustScaler, QuantileTransformer, PowerTransformer
 from sklearn.cluster import KMeans
 import plotly.graph_objects as go
+from sklearn import set_config
+set_config(transform_output="pandas")
 
 ##############################################################################################################################
 # This function takes as input the original DataFrame and the scalar name and returns the scaled DataFrame
@@ -13,11 +15,11 @@ import plotly.graph_objects as go
 def getScaled_df(name_df,scaler_name):
     # Create a scaler object
     match scaler_name:
-        case "MinMaxScaler":scaler = MinMaxScaler().set_output(transform="pandas")
-        case "StandardScaler":scaler = StandardScaler().set_output(transform="pandas")
-        case "RobustScaler":scaler = RobustScaler().set_output(transform="pandas")
-        case "QuantileTransformer":scaler = QuantileTransformer(n_quantiles = name_df.shape[0]).set_output(transform="pandas")
-        case "PowerTransformer":scaler = StandardScaler().set_output(transform="pandas")
+        case "MinMaxScaler":scaler = MinMaxScaler()
+        case "StandardScaler":scaler = StandardScaler()
+        case "RobustScaler":scaler = RobustScaler()
+        case "QuantileTransformer":scaler = QuantileTransformer(n_quantiles = name_df.shape[0])
+        case "PowerTransformer":scaler = StandardScaler()
     
     # Scale the DataFrame
     scaled_df = scaler.fit_transform(name_df)
