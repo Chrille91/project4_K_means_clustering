@@ -28,7 +28,7 @@ def get_scaled_df(name_df,scaler_name):
     return scaled_df
 
 ##############################################################################################################################
-# This function takes as input the number of clusters, the random seed and the scaled DataFrame and returns the cluster output
+# This function takes as input the number of clusters, the random state and the scaled DataFrame and returns the cluster output
 # It also plots the distance between centroids on heatmap if the "with_distances_heatmap" is set to "True"
 
 def get_clusters(number_clusters,random_state,scaled_df,with_distances_heatmap):
@@ -97,7 +97,7 @@ def plot_radar_chart(scaled_df,cluster_mean_df):
     # Add extras to the plot such as title
     # You'll always need `polar=dict(radialaxis=dict(visible=True,range=[0, 1]))` when creating a radar plot
     fig.update_layout(
-    title_text = 'Radar chart of mean food preferences by cluster',
+    title_text = 'Radar chart of mean features by cluster',
     height = 600,
     width = 800,
     polar=dict(
@@ -123,7 +123,7 @@ def plot_radar_chart_clusters(name_df,scaler_name,number_clusters,random_state,w
     return scaled_df
 
 ##############################################################################################################################
-# This function takes as input the original DataFrame, the scalar name, the minimum and maximum number of cluster, the random seed and the scoring method and plots the inertia scores
+# This function takes as input the original DataFrame, the scalar name, the minimum and maximum number of cluster, the random state and the scoring method and plots the inertia or the silhouette scores
 
 def plot_scores(name_df,scaler_name,nb_min_clusters,nb_max_clusters,random_state,method_name):
     scaled_df=get_scaled_df(name_df,scaler_name)
