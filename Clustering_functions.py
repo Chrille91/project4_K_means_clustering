@@ -97,7 +97,7 @@ def plot_radar_chart(scaled_df,cluster_mean_df):
     # Add extras to the plot such as title
     # You'll always need `polar=dict(radialaxis=dict(visible=True,range=[0, 1]))` when creating a radar plot
     fig.update_layout(
-    title_text = 'Radar chart of mean food preferences by cluster',
+    title_text = 'Radar chart by cluster',
     height = 600,
     width = 800,
     polar=dict(
